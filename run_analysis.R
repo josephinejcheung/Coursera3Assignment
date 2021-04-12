@@ -53,6 +53,12 @@ df <- cbind(subject,Y,X)
 names(df) <- gsub("\\(\\)","", names(df))
 names(df) <- gsub("-","_",names(df))
 
+df
+write.table(summary,file="output1_data.txt",row.names=FALSE)
+
 #Step 5. Summarise into a tidy data set 
 summary <- sapply(split(df[4:69],list(df$activity_desc,df$subject_no)),colMeans,na.rm=TRUE)
 summary <- t(summary[,!is.na(summary[4,])])
+
+summary
+write.table(summary,file="output2_summary.txt",row.names=FALSE)
