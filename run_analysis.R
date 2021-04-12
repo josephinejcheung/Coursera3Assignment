@@ -54,7 +54,7 @@ names(df) <- gsub("\\(\\)","", names(df))
 names(df) <- gsub("-","_",names(df))
 
 df
-write.table(summary,file="output1_data.txt",row.names=FALSE)
+write.table(df,file="output1_data.txt",row.names=FALSE)
 
 #Step 5. Summarise into a tidy data set 
 summary <- sapply(split(df[4:69],list(df$activity_desc,df$subject_no)),colMeans,na.rm=TRUE)
